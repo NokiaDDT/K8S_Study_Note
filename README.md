@@ -26,7 +26,8 @@ k8s cluster 管理者可以在建立 PV 時，指定額外的 mount option，並
 - 若使用者沒指定 storage class，那就應該會有 default storage class 的相關設定
 - 若 PVC 一直處於無法與任何 PV 繫結的狀況，那就需要詢問 k8s cluster 管理者
 
-> 補圖 /home/asus/Templates/20200916/k8s_volume-pvc.png
+PV/PVC關係圖
+![PV/PVC關係圖](https://github.com/NokiaDDT/K8S_Study_Note/blob/main/k8s_volume-pvc.png)
 
 ## Reference
 [ [Kubernetes] Persistent Volume (Claim) Overview ](https://godleon.github.io/blog/Kubernetes/k8s-PersistentVolume-Overview/)
