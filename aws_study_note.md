@@ -28,7 +28,13 @@ AWS 設定 MFA 之後，任何界面操作都需要進行 MFA 認證。
 
 ##### 如使用 AWS API，則必須套過 sts get-session-token API來獲得暫時性 token。
 
+##### 如使用 S3 Browser，則必須在建立帳號的時候，選擇 Account Type 為：AWS S3 (Credentials from AWS Config or Credential file)
+
 ### Reference
 [設定受 MFA 保護的 API 存取](https://docs.aws.amazon.com/zh_tw/IAM/latest/UserGuide/id_credentials_mfa_configure-api-require.html)
+
 [How do I use an MFA token to authenticate access to my AWS resources through the AWS CLI?](https://aws.amazon.com/premiumsupport/knowledge-center/authenticate-mfa-cli/)
+
 [AWS STS JavaScript SDK](https://docs.aws.amazon.com/AWSJavaScriptSDK/latest/AWS/STS.html#getSessionToken-property)
+
+[S3 Browser:  AWS Credentials from AWS Config or Crendential file](https://s3browser.com/aws-credentials-from-config-file.aspx)
