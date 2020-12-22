@@ -38,3 +38,50 @@ AWS 設定 MFA 之後，任何界面操作都需要進行 MFA 認證。
 [AWS STS JavaScript SDK](https://docs.aws.amazon.com/AWSJavaScriptSDK/latest/AWS/STS.html#getSessionToken-property)
 
 [S3 Browser:  AWS Credentials from AWS Config or Crendential file](https://s3browser.com/aws-credentials-from-config-file.aspx)
+
+### How to use StorageClass on EKS
+基本概念請參考 [Storage Classes](https://docs.aws.amazon.com/eks/latest/userguide/storage-classes.html)，目前版本的 EKS 已經內建設定 GP2 為預設 Storage Class。
+流程為 1. 確認 Storage Class 設定完成 2. 建立 PVC 3. 確認 EBS 自動產生 Volume，詳細內容請參考[[Day28] k8s應用篇（二）：EBS和EFS的使用](https://ithelp.ithome.com.tw/articles/10227675)
+下列為 PVC 內容
+```
+apiVersion: v1
+kind: PersistentVolumeClaim
+metadata:
+  name: mysql-pv-claim
+  labels:
+    app: wordpress
+spec:
+  accessModes:
+    - ReadWriteOnce
+  resources:
+    requests:
+      storage: 20Gi
+---
+apiVersion: v1
+kind: PersistentVolumeClaim
+metadata:
+  name: wp-pv-claim
+  labels:
+    app: wordpress
+spec:
+  accessModes:
+    - ReadWriteOnce
+  resources:
+    requests:
+      storage: 20Gi
+```
+準備好 pvc.yaml之後，使用下列指令進行 apply
+> $kubectl apply -f pvcs.yaml -n ns-eks
+
+> persistentvolumeclaim/mysql-pv-claim created
+
+> persistentvolumeclaim/wp-pv-claim created
+
+另外完成後記得要到  EC2 -> EBS -> Volumes 中將所產生的 Volume 刪除。
+
+### Reference
+[Storage Classes](https://docs.aws.amazon.com/eks/latest/userguide/storage-classes.html)
+
+[[Day28] k8s應用篇（二）：EBS和EFS的使用](https://ithelp.ithome.com.tw/articles/10227675)
+[]()
+[]()
