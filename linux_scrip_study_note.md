@@ -44,6 +44,9 @@ sed -e '/^dns-nameservers/!d' -e '/172.22.44.53/!s/$/ 172.22.44.53/' -e '/172.22
 
 6. 最後使用 && || 指令來判斷重啟服務是否正常來決定後續流程。(參考 Reference #5)
 
+## 完整script
+[deep-security-networking-config-1231.sh](./deep-security-networking-config-1231.sh)
+
 ## Reference
 1. [Sed & Awd 101 Hacks 中文版電子書](https://jimmysong.io/linux-practice/books/sed_and_awk_101_hacks_chinese_edition.pdf)
 2. [Lookahead and Lookbehind Zero-Length Assertions](http://www.regular-expressions.info/lookaround.html)
