@@ -1,5 +1,10 @@
 # K8S_Study_Note
 
+### 容器技術的基石 - CGROUP & NAMESPACE
+[一篇搞懂容器技术的基石： cgroup](https://zhuanlan.zhihu.com/p/434731896) <br/>
+[搞懂容器技术的基石： namespace （上）](https://moelove.info/2021/12/10/%E6%90%9E%E6%87%82%E5%AE%B9%E5%99%A8%E6%8A%80%E6%9C%AF%E7%9A%84%E5%9F%BA%E7%9F%B3-namespace-%E4%B8%8A/) <br/>
+[搞懂容器技术的基石： namespace （下）](https://moelove.info/2021/12/13/%E6%90%9E%E6%87%82%E5%AE%B9%E5%99%A8%E6%8A%80%E6%9C%AF%E7%9A%84%E5%9F%BA%E7%9F%B3-namespace-%E4%B8%8B/) <br/>
+
 ### Access Modes
 PV 可以透過 ReadWriteOnce(一個 node 可 read-write，可縮寫為 RWO), ReadOnlyMany(一個 node 可 write，多個 node 可 read-only，可縮寫為 ROX), ReadWriteMany(多個 node 可 read-write，可縮寫為 RWX) 三種存取模式提供掛載，但存取控制機制本身並非由 k8s 支援，而是由 PV resource provider 支援（例如上面的例子為 NFS，就可以支援 ReadWriteMany，但 Ceph RBD 則不行）。
 > [Cinder只支援RWO](https://kubernetes.io/docs/concepts/storage/persistent-volumes/#access-modes)
