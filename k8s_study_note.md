@@ -1,5 +1,9 @@
 # K8S_Study_Note
 
+### Kind 無法pull image
+使用Kind建立Pod出現 ImagePullBackOff，必須使用 `Kind load docker-image Your_Image --name Your_Kind_Cluster_Name` 先把image load到這個cluster來才可。
+另外docker可能要先用 `docker login -u xxx -p yyy` 進行login
+
 ### 容器技術的基石 - CGROUP & NAMESPACE
 [一篇搞懂容器技术的基石： cgroup](https://zhuanlan.zhihu.com/p/434731896) <br/>
 [搞懂容器技术的基石： namespace （上）](https://moelove.info/2021/12/10/%E6%90%9E%E6%87%82%E5%AE%B9%E5%99%A8%E6%8A%80%E6%9C%AF%E7%9A%84%E5%9F%BA%E7%9F%B3-namespace-%E4%B8%8A/) <br/>
