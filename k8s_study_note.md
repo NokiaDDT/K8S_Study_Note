@@ -1,6 +1,7 @@
 # K8S_Study_Note
 
 ### Kind 無法pull image
+請先詳閱 [kind: Loading an image into your cluster](https://kind.sigs.k8s.io/docs/user/quick-start/#loading-an-image-into-your-cluster)<p/>
 使用Kind建立Pod出現 ImagePullBackOff，必須使用 `Kind load docker-image Your_Image --name Your_Kind_Cluster_Name` 先把image load到這個cluster來才可。
 另外docker可能要先用 `docker login -u xxx -p yyy` 進行login
 
